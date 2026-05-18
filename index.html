@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0066ff" />
+  <title>PingPong Global — 공유 경제의 새로운 흐름</title>
+  <meta name="description" content="PingPong Global은 여행용품 렌탈을 통해 공유 경제를 활성화합니다. 다이슨 에어랩, 고프로, 고데기 등 프리미엄 제품을 합리적으로 빌려쓰세요." />
+  <meta property="og:title" content="PingPong Global — 공유 경제의 새로운 흐름" />
+  <meta property="og:description" content="다이슨 에어랩, 고프로, 고데기까지. 여행이 더 가벼워지는 프리미엄 렌탈 서비스." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pingpong.ltd" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Pretendard:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="./styles/main.css" />
+</head>
+<body>
+  <!-- LED Grid Background -->
+  <div class="led-grid" aria-hidden="true"></div>
+  <div class="scanline" aria-hidden="true"></div>
+  <canvas id="particles" aria-hidden="true"></canvas>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <!-- Page Loader -->
+  <div class="loader" id="loader">
+    <div class="loader-core">
+      <span class="loader-pulse"></span>
+      <span class="loader-pulse"></span>
+      <span class="loader-pulse"></span>
+    </div>
+    <div class="loader-text" data-text="PINGPONG GLOBAL">PINGPONG GLOBAL</div>
+  </div>
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <a href="#home" class="logo">
+      <span class="logo-mark">
+        <span class="logo-ball"></span>
+        <span class="logo-ring"></span>
+      </span>
+      <span class="logo-text">PingPong<em>Global</em></span>
+    </a>
+    <nav class="nav-links" aria-label="주요 메뉴">
+      <a href="#vision">비전</a>
+      <a href="#services">렌탈 상품</a>
+      <a href="#how">이용 방법</a>
+      <a href="#stats">성과</a>
+      <a href="#about">회사 소개</a>
+      <a href="#contact">문의</a>
+    </nav>
+    <a href="#contact" class="cta-button nav-cta">
+      <span>지금 렌탈하기</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-bg-orb orb-1"></div>
+    <div class="hero-bg-orb orb-2"></div>
+    <div class="hero-bg-orb orb-3"></div>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span>Premium Rental for Travelers</span>
+      </div>
+
+      <h1 class="hero-title">
+        <span class="title-line">
+          <span class="word reveal-word">소유</span>
+          <span class="word reveal-word">하지</span>
+          <span class="word reveal-word">않고</span>
+        </span>
+        <span class="title-line">
+          <span class="word reveal-word gradient-text">공유</span>
+          <span class="word reveal-word">하는</span>
+        </span>
+        <span class="title-line">
+          <span class="word reveal-word">새로운</span>
+          <span class="word reveal-word glow-text">라이프스타일</span>
+        </span>
+      </h1>
+
+      <p class="hero-sub reveal-up">
+        PingPong Global은 여행에 필요한 프리미엄 제품을<br />
+        합리적인 가격으로 빌려쓰는 공유 경제를 만들어 갑니다.
+      </p>
+
+      <div class="hero-cta reveal-up">
+        <a href="#services" class="cta-button primary">
+          <span>렌탈 상품 보기</span>
+          <span class="cta-shine"></span>
+        </a>
+        <a href="#how" class="cta-button ghost">
+          <span>이용 방법</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+        </a>
+      </div>
+
+      <div class="hero-marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>DYSON AIRWRAP</span><span>•</span>
+          <span>GOPRO HERO</span><span>•</span>
+          <span>고데기 / 매직기</span><span>•</span>
+          <span>여행용 캐리어</span><span>•</span>
+          <span>휴대용 빔프로젝터</span><span>•</span>
+          <span>스팀다리미</span><span>•</span>
+          <span>DYSON AIRWRAP</span><span>•</span>
+          <span>GOPRO HERO</span><span>•</span>
+          <span>고데기 / 매직기</span><span>•</span>
+          <span>여행용 캐리어</span><span>•</span>
+          <span>휴대용 빔프로젝터</span><span>•</span>
+          <span>스팀다리미</span><span>•</span>
+        </div>
+      </div>
+    </div>
+
+    <a href="#vision" class="scroll-indicator" aria-label="아래로 스크롤">
+      <span class="scroll-dot"></span>
+      <span class="scroll-text">SCROLL</span>
+    </a>
+  </section>
+
+  <!-- Vision Section -->
+  <section class="vision" id="vision">
+    <div class="container">
+      <div class="section-head reveal-up">
+        <span class="eyebrow">OUR VISION</span>
+        <h2 class="section-title">
+          물건은 <span class="gradient-text">멈춰</span> 있지만,<br />
+          가치는 <span class="glow-text">움직여야</span> 합니다.
+        </h2>
+      </div>
+
+      <div class="vision-grid">
+        <div class="vision-card reveal-up" data-delay="0">
+          <div class="card-glow"></div>
+          <div class="card-num">01</div>
+          <h3>덜 사고, 더 즐기는 도시</h3>
+          <p>소비를 줄이면서도 더 풍부한 경험을 누릴 수 있는 도시.
+            우리가 만들고 싶은 일상입니다.</p>
+        </div>
+        <div class="vision-card reveal-up" data-delay="120">
+          <div class="card-glow"></div>
+          <div class="card-num">02</div>
+          <h3>모두에게 열려있는 프리미엄</h3>
+          <p>고가의 제품도 필요한 만큼만 빌려서 사용할 수 있도록.
+            진입 장벽을 낮추는 공유 경제를 추구합니다.</p>
+        </div>
+        <div class="vision-card reveal-up" data-delay="240">
+          <div class="card-glow"></div>
+          <div class="card-num">03</div>
+          <h3>지속 가능한 여행 문화</h3>
+          <p>여행지에서의 일회성 구매를 줄여
+            지구에도, 지갑에도 가벼운 여행을 제안합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-head reveal-up">
+        <span class="eyebrow">RENTAL LINEUP</span>
+        <h2 class="section-title">
+          한 번쯤 갖고 싶었던 그 제품,<br />
+          <span class="gradient-text">필요한 만큼만</span> 빌려 쓰세요.
+        </h2>
+        <p class="section-desc">여행에서, 일상에서, 특별한 순간에 필요한 프리미엄 가전을
+          PingPong Global이 안전하게 배송해 드립니다.</p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card reveal-up" data-delay="0">
+          <div class="service-glow"></div>
+          <div class="service-tag">BEST RENTAL</div>
+          <div class="service-visual" data-visual="airwrap">
+            <svg viewBox="0 0 200 200" class="service-svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#4cc9ff"/>
+                  <stop offset="100%" stop-color="#0044ff"/>
+                </linearGradient>
+              </defs>
+              <circle cx="100" cy="100" r="70" stroke="url(#g1)" stroke-width="2" fill="none" opacity="0.4"/>
+              <circle cx="100" cy="100" r="50" stroke="url(#g1)" stroke-width="2" fill="none" opacity="0.6"/>
+              <rect x="92" y="40" width="16" height="120" rx="8" fill="url(#g1)" opacity="0.85"/>
+              <circle cx="100" cy="45" r="14" fill="url(#g1)"/>
+              <circle cx="100" cy="45" r="6" fill="#001a4d"/>
+            </svg>
+          </div>
+          <div class="service-body">
+            <h3>다이슨 에어랩</h3>
+            <p>드라이부터 컬링까지. 호텔에서도 살롱 같은 스타일링.</p>
+            <ul class="service-meta">
+              <li><span>1일</span><strong>9,900원~</strong></li>
+              <li><span>배송</span><strong>전국 당일/익일</strong></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="service-card reveal-up" data-delay="120">
+          <div class="service-glow"></div>
+          <div class="service-tag">TRAVEL PICK</div>
+          <div class="service-visual" data-visual="gopro">
+            <svg viewBox="0 0 200 200" class="service-svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#7fdcff"/>
+                  <stop offset="100%" stop-color="#1a52ff"/>
+                </linearGradient>
+              </defs>
+              <rect x="50" y="60" width="100" height="80" rx="14" stroke="url(#g2)" stroke-width="2" fill="none"/>
+              <circle cx="100" cy="100" r="26" stroke="url(#g2)" stroke-width="2" fill="none"/>
+              <circle cx="100" cy="100" r="18" fill="url(#g2)" opacity="0.4"/>
+              <circle cx="100" cy="100" r="8" fill="url(#g2)"/>
+              <rect x="62" y="50" width="20" height="14" rx="3" fill="url(#g2)" opacity="0.6"/>
+              <circle cx="135" cy="72" r="4" fill="#ff3b6b"/>
+            </svg>
+          </div>
+          <div class="service-body">
+            <h3>고프로 HERO</h3>
+            <p>스킨스쿠버, 트레킹, 라이딩까지. 4K로 남기는 여행의 순간.</p>
+            <ul class="service-meta">
+              <li><span>1일</span><strong>7,900원~</strong></li>
+              <li><span>구성</span><strong>본체 + 액세서리 풀세트</strong></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="service-card reveal-up" data-delay="240">
+          <div class="service-glow"></div>
+          <div class="service-tag">DAILY</div>
+          <div class="service-visual" data-visual="curler">
+            <svg viewBox="0 0 200 200" class="service-svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="g3" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#6ad0ff"/>
+                  <stop offset="100%" stop-color="#0033ff"/>
+                </linearGradient>
+              </defs>
+              <rect x="60" y="50" width="20" height="100" rx="10" fill="url(#g3)" opacity="0.85"/>
+              <rect x="120" y="50" width="20" height="100" rx="10" fill="url(#g3)" opacity="0.85"/>
+              <rect x="55" y="40" width="30" height="14" rx="4" fill="url(#g3)"/>
+              <rect x="115" y="40" width="30" height="14" rx="4" fill="url(#g3)"/>
+              <path d="M80 150 Q100 170 120 150" stroke="url(#g3)" stroke-width="3" fill="none"/>
+              <circle cx="70" cy="60" r="3" fill="#fff" opacity="0.9"/>
+              <circle cx="130" cy="60" r="3" fill="#fff" opacity="0.9"/>
+            </svg>
+          </div>
+          <div class="service-body">
+            <h3>프리미엄 고데기 / 매직기</h3>
+            <p>여행 전날 급하게 사지 마세요. 필요한 날짜만 빌려서 사용.</p>
+            <ul class="service-meta">
+              <li><span>1일</span><strong>3,900원~</strong></li>
+              <li><span>위생</span><strong>건당 살균/소독 완료</strong></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="service-card reveal-up coming" data-delay="360">
+          <div class="service-glow"></div>
+          <div class="service-tag soft">COMING SOON</div>
+          <div class="service-visual" data-visual="more">
+            <svg viewBox="0 0 200 200" class="service-svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="g4" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#9eb6ff"/>
+                  <stop offset="100%" stop-color="#0033ff"/>
+                </linearGradient>
+              </defs>
+              <circle cx="60" cy="100" r="12" fill="url(#g4)"/>
+              <circle cx="100" cy="100" r="12" fill="url(#g4)"/>
+              <circle cx="140" cy="100" r="12" fill="url(#g4)"/>
+              <circle cx="100" cy="100" r="70" stroke="url(#g4)" stroke-width="1" fill="none" opacity="0.5"/>
+            </svg>
+          </div>
+          <div class="service-body">
+            <h3>더 많은 카테고리 확장 중</h3>
+            <p>캐리어, 빔프로젝터, 스팀다리미까지. 일상에 필요한 모든 것.</p>
+            <ul class="service-meta">
+              <li><span>준비중</span><strong>2026 하반기 오픈</strong></li>
+              <li><span>요청</span><strong>원하는 품목을 알려주세요</strong></li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="how" id="how">
+    <div class="container">
+      <div class="section-head reveal-up">
+        <span class="eyebrow">HOW IT WORKS</span>
+        <h2 class="section-title">
+          단 <span class="gradient-text">3분</span>이면<br />
+          렌탈 신청이 완료됩니다.
+        </h2>
+      </div>
+
+      <ol class="steps">
+        <li class="step reveal-up" data-delay="0">
+          <div class="step-line"></div>
+          <div class="step-num"><span>01</span></div>
+          <h3>제품 선택</h3>
+          <p>원하는 제품과 렌탈 기간을 선택합니다.
+            각 카테고리별로 다양한 모델을 비교해 보세요.</p>
+        </li>
+        <li class="step reveal-up" data-delay="120">
+          <div class="step-line"></div>
+          <div class="step-num"><span>02</span></div>
+          <h3>주소 입력 & 결제</h3>
+          <p>받을 주소와 결제 정보를 입력하면 끝.
+            카카오페이, 네이버페이, 카드 모두 가능합니다.</p>
+        </li>
+        <li class="step reveal-up" data-delay="240">
+          <div class="step-line"></div>
+          <div class="step-num"><span>03</span></div>
+          <h3>받고, 쓰고, 돌려주기</h3>
+          <p>전국 어디든 빠르게 배송, 사용 후엔
+            동봉된 회수 라벨로 편하게 반납하세요.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats" id="stats">
+    <div class="container">
+      <div class="section-head reveal-up">
+        <span class="eyebrow">BY THE NUMBERS</span>
+        <h2 class="section-title">
+          공유의 가치는 <span class="glow-text">숫자</span>로 증명됩니다.
+        </h2>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat reveal-up">
+          <div class="stat-bar"></div>
+          <div class="stat-num" data-count="120000" data-suffix="+">0</div>
+          <div class="stat-label">누적 렌탈 건수</div>
+        </div>
+        <div class="stat reveal-up" data-delay="100">
+          <div class="stat-bar"></div>
+          <div class="stat-num" data-count="98" data-suffix="%">0</div>
+          <div class="stat-label">평균 만족도</div>
+        </div>
+        <div class="stat reveal-up" data-delay="200">
+          <div class="stat-bar"></div>
+          <div class="stat-num" data-count="32" data-suffix="t">0</div>
+          <div class="stat-label">감축한 자원 소비 (추정)</div>
+        </div>
+        <div class="stat reveal-up" data-delay="300">
+          <div class="stat-bar"></div>
+          <div class="stat-num" data-count="24" data-suffix="h">0</div>
+          <div class="stat-label">전국 평균 배송 시간</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <div class="container about-inner">
+      <div class="about-left reveal-up">
+        <span class="eyebrow">ABOUT US</span>
+        <h2 class="section-title">
+          <span class="gradient-text">PingPong</span>처럼<br />
+          가볍게 오가는 가치.
+        </h2>
+        <p class="about-desc">
+          PingPong Global은 "필요한 사람에게, 필요한 시간만큼"이라는
+          단순한 아이디어에서 시작했습니다. 우리는 한 번 사면 잠들어 있는
+          제품들을 다시 깨우는 일을 합니다. 누군가의 옷장 속에 잠든
+          드라이어가, 다른 누군가의 휴양지에서 환하게 빛나도록.
+        </p>
+
+        <div class="about-tags">
+          <span class="tag"><span class="tag-dot"></span>Sharing Economy</span>
+          <span class="tag"><span class="tag-dot"></span>Travel Tech</span>
+          <span class="tag"><span class="tag-dot"></span>Premium Rental</span>
+          <span class="tag"><span class="tag-dot"></span>ESG</span>
+        </div>
+      </div>
+
+      <div class="about-right reveal-up">
+        <div class="device-frame">
+          <div class="device-screen">
+            <div class="device-line"></div>
+            <div class="device-row">
+              <span class="device-key">Company</span>
+              <span class="device-val">PingPong Global</span>
+            </div>
+            <div class="device-row">
+              <span class="device-key">Mission</span>
+              <span class="device-val">Activating the Sharing Economy</span>
+            </div>
+            <div class="device-row">
+              <span class="device-key">Focus</span>
+              <span class="device-val">Premium Travel Rental</span>
+            </div>
+            <div class="device-row">
+              <span class="device-key">Founded</span>
+              <span class="device-val">Seoul, KR</span>
+            </div>
+            <div class="device-line"></div>
+            <div class="device-pulse">
+              <span></span><span></span><span></span>
+              <strong>SYSTEM ONLINE</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / Contact -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-card reveal-up">
+        <div class="contact-glow"></div>
+        <div class="contact-text">
+          <span class="eyebrow">GET STARTED</span>
+          <h2 class="section-title">
+            지금 바로 <span class="gradient-text">PingPong</span>과<br />
+            가벼운 여행을 시작하세요.
+          </h2>
+          <p>제품 추천부터 단체/장기 렌탈 견적까지, 무엇이든 문의해 주세요.</p>
+        </div>
+        <div class="contact-actions">
+          <a href="mailto:hello@pingpong.ltd" class="cta-button primary">
+            <span>hello@pingpong.ltd</span>
+            <span class="cta-shine"></span>
+          </a>
+          <div class="contact-meta">
+            <div><span>고객센터</span><strong>1660-0000</strong></div>
+            <div><span>운영시간</span><strong>평일 10:00 – 19:00</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-mark">
+          <span class="logo-ball"></span>
+          <span class="logo-ring"></span>
+        </span>
+        <div>
+          <strong>PingPong Global</strong>
+          <span>공유 경제를 활성화하는 프리미엄 렌탈 플랫폼</span>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div>
+          <h4>SERVICE</h4>
+          <a href="#services">렌탈 상품</a>
+          <a href="#how">이용 방법</a>
+          <a href="#contact">단체 렌탈 문의</a>
+        </div>
+        <div>
+          <h4>COMPANY</h4>
+          <a href="#about">회사 소개</a>
+          <a href="#vision">비전</a>
+          <a href="#stats">성과</a>
+        </div>
+        <div>
+          <h4>CONTACT</h4>
+          <a href="mailto:hello@pingpong.ltd">hello@pingpong.ltd</a>
+          <a href="tel:16600000">1660-0000</a>
+          <a href="https://pingpong.ltd">pingpong.ltd</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 PingPong Global. All rights reserved.</span>
+        <span>Made with <span class="heart">●</span> in Seoul</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./scripts/main.js"></script>
+</body>
+</html>
